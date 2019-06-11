@@ -38,6 +38,7 @@ void main()
            break;
            case 'A':    
              printf("\r %li",contador);
+             flag_opcion=0;
            break;
            case 'R':    
              contador=0;
