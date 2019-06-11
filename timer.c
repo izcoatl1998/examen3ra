@@ -17,7 +17,7 @@ void main()
    enable_interrupts(INT_TIMER0);
    enable_interrupts(GLOBAL);
    set_timer0(3036); //a
-   char opcion[1];
+   char opcion;
    set_tris_D(0x00);
    printf("Hola examen, Pulse R para poner contador a 0, S empieze a contar A para y enviar contador actual: \r");
    while(TRUE)
@@ -27,19 +27,21 @@ void main()
       contador_led=0;
     }
     if(kbhit()){            //01
-        opcion[0]=getch();//-+//+
-        if(opcion[0]==65 || opcion[0]==83 || opcion[0]==82){
-           printf("%c",opcion[0]);
+        opcion=getch();//-+//+
+        if(opcion==65 || opcion==83 || opcion==82){
+           printf("%c",opcion);
         }
         switch(opcion){
-        case 'S':
-                flag_opcion==1;
-                opcion[0]=NULL;  
-        break;
-        case 'A':
-             flag_opcion=0;
+           case 'S':
+                flag_opcion=1;
+                opcion=NULL;  
+           break;
+           case 'A':    
              printf("\r %li",contador);
-        break;
+           break;
+           case 'R':    
+             contador=0;
+           break;
         }
     }
       //TODO: User Code
