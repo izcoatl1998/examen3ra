@@ -8,16 +8,15 @@ void TIMER0(){
  contador_led++;
  if(flag_opcion==1){
  contador++;}
- set_timer0(26473.5);
+ set_timer0(3036);
 }
 void main()
 {
-   setup_timer_0(RTCC_INTERNAL | RTCC_DIV_256 );
+   setup_timer_0(RTCC_INTERNAL | RTCC_DIV_16);
    enable_interrupts(INT_TIMER0);
    enable_interrupts(GLOBAL);
-   set_timer0(26473.5); //a
+   set_timer0(3036); //a
    char opcion;
-   int opciones=0;
    set_tris_D(0x00);
    printf("Hola examen, Pulse R para poner contador a 0, S empieze a contar A para y enviar contador actual: \r");
    while(TRUE)
